@@ -27,31 +27,38 @@ public class _789 {
 
         int q = Integer.parseInt(s.split(" ")[1]);
 
+        String s2 = reader.readLine();
+        String[] s3 = s2.split(" ");
 
 
-        for(int i = 0; i<n;i++){
-            s = reader.readLine();
-            int n = Integer.parseInt(s.split(" ")[i]);
 
-            list.add(n);
+
+        for(int i = 0; i<s3.length;i++){
+           list.add(Integer.parseInt(s3[i]));
+
+
+
         }
 
-        for(int i = 0; i<q; i++){
-            s = reader.readLine();
 
-            int num = reader.read();
+
+
+        for(int i = 0; i<q; i++){
+
+
+            int num = Integer.parseInt(reader.readLine());
+
             if(!list.contains(num)){
                 writer.write(-1+" "+-1);
-                writer.write("\n");
 
             }
             else {
                 int start = list.indexOf(num);
                 int end = list.lastIndexOf(num);
                 writer.write(start+" "+end);
-                writer.write("\n");
 
             }
+            writer.write("\n");
 
         }
         reader.close();
