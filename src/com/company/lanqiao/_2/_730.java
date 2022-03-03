@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Author:xie-super
  * Time:2022/3/2
  * Name:730. 机器人跳跃问题
- *
+ *Method:二分
  */
 public class _730 {
     private static final int N = 100010;
