@@ -1,0 +1,2 @@
+二分的 两种形式  r = mid, l = mid+1   mid = l+1>>1
+r = mid-1, l = mid  mid = r+l+1>>1
