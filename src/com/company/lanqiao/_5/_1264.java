@@ -77,6 +77,7 @@ public class _1264 {
 
  */
 
+    /*
 //线段树  https://www.acwing.com/solution/content/40394/
 class TR{
     public int l;
@@ -208,3 +209,4 @@ public class _1264{
         writer.close();
     }
 }
+*/
