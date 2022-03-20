@@ -1,60 +1,52 @@
-package com.company;
+import java.util.Scanner;
 
-import java.util.*;
 public class Main{
-    private static int N = 100010;
+    private static int N =  2000000;
     static int[] a = new int[N];
-    static int n, q, k;
-    static int l, r;
-    public static int checkLeft(int num){
-         l = 0;
-         r = n;
-
-        while(l<r){
-            int mid = r+l>>1;
-
-            if(a[mid]>=num){
-                r = mid;
-            }else{
-                l = mid+1;
-            }
-        }
-        return r;
-    }
-
-    public static int checkRight(int num){
-        int l = 0, r = n;
-        while(l<r){
-            int mid = (r+l+1)/2;
-            if(a[mid]<=num){
-                l = mid;
-            }else{
-                r = mid-1;
-            }
-        }
-        return r;
-    }
-    public static void main(String [] args){
+    static int[] sum = new int[N];
+    static int n,first, second;
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         n = input.nextInt();
-        q = input.nextInt();
-
-        for(int i=0; i<n; i++){
-            a[i] = input.nextInt();
-        }
-
-        for(int i = 0; i<q; i++){
-            int num = input.nextInt();
-
-            int res = checkLeft(num);
-            if(a[res] != num){
-                System.out.print(res);
-                System.out.println("-1 -1");
-            }else{
-                System.out.println(res+" "+checkRight(num));
+        first = input.nextInt();
+        second = input.nextInt();
+        for(int i = 1; i<=n ; i++){
+            if(i == first){
+                continue;
+            }
+            for(int j = 1; j<=n ; j++){
+                if(j == second){
+                    continue;
+                }
+                a[i+j]++;
 
             }
         }
+        for(int i = 2; i<=2*n; i++){
+            sum[i] = sum[i-1]+a[i];
+        }
+
+        int finalRes = first+second;
+        int one;
+        int two;
+        int back = sum[2*n]-sum[finalRes-1];
+        if(back>=n-1){
+            one = 1;
+        }else {
+            one = n - back;
+        }
+        int front = sum[finalRes];
+        System.out.println(front);
+        if(front>=n-1){
+            two = n;
+        }else {
+            two = front+1;
+        }
+
+        System.out.println(one+" "+two);
+
+
 
     }
+
 }
